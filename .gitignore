@@ -1,0 +1,37 @@
+# =============================================================================
+# .gitignore — Terraform
+# =============================================================================
+
+# Local .terraform directory (downloaded providers & modules — large, regenerable)
+**/.terraform/
+
+# Terraform lock file is safe to commit (pins provider versions)
+# !.terraform.lock.hcl
+
+# State files — never commit these (contain sensitive data)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Variable files that may contain secrets
+*.tfvars
+*.tfvars.json
+
+# Keep the example tfvars in source control
+!terraform.tfvars.example
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Override files (local developer overrides)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Plan output files (binary, not human-readable)
+*.tfplan
+
+# macOS
+.DS_Store
