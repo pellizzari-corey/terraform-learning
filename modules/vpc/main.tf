@@ -203,7 +203,7 @@ resource "aws_security_group" "internal" {
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    description = "Self-referencing — internal VPC traffic only"
+    description = "Self referencing / internal VPC traffic only"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
