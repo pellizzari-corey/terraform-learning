@@ -39,7 +39,7 @@ provider "aws" {
 # A simple SSM Parameter — our "Hello World" resource to confirm state works
 # -----------------------------------------------------------------------------
 resource "aws_ssm_parameter" "hello" {
-  name  = "/tf-learning/hello-v2"
+  name  = "/tf-learning/hello"
   type  = "String"
   value = "Remote state is working! Deployed at ${timestamp()}"
 
