@@ -220,3 +220,35 @@ resource "aws_security_group" "internal" {
 
   tags = { Name = "${var.name}-sg-internal" }
 }
+
+# -----------------------------------------------------------------------------
+# ENI Cleanup — runs before destroy to detach/delete Lambda ENIs that AWS
+# leaves behind, which would otherwise block SG and subnet deletion.
+# -----------------------------------------------------------------------------
+resource "null_resource" "eni_cleanup" {
+  triggers = {
+    vpc_id        = aws_vpc.main.id
+    sg_lambda_id  = aws_security_group.lambda.id
+    region        = data.aws_availability_zones.available.id
+  }
+
+  provisioner "local-exec" {
+    when       = destroy
+    on_failure = continue
+
+    command = <<-EOT
+      aws ec2 describe-network-interfaces \
+        --region ${self.triggers.region} \
+        --filters \
+          Name=vpc-id,Values=${self.triggers.vpc_id} \
+          Name=group-id,Values=${self.triggers.sg_lambda_id} \
+          Name=status,Values=available \
+        --query 'NetworkInterfaces[*].NetworkInterfaceId' \
+        --output text \
+      | tr '\t' '\n' \
+      | xargs -r -I{} aws ec2 delete-network-interface \
+          --region ${self.triggers.region} \
+          --network-interface-id {}
+    EOT
+  }
+}
