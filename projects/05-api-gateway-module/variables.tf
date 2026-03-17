@@ -1,5 +1,5 @@
 # =============================================================================
-# variables.tf — Project 2.2: Lambda Module
+# variables.tf — Project 2.3: API Gateway Module
 # =============================================================================
 
 variable "aws_region" {
@@ -26,7 +26,7 @@ variable "project_name" {
 }
 
 variable "enable_nat_gateway" {
-  description = "Whether to provision a NAT Gateway. Required for VPC Lambda to reach the internet. Set false to reduce cost when testing without outbound internet."
+  description = "Whether to provision a NAT Gateway for the VPC Lambda. Set false to reduce cost; VPC Lambda will lose outbound internet access."
   type        = bool
   default     = true
 }

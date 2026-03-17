@@ -40,5 +40,5 @@ variable "az_count" {
 variable "enable_nat_gateway" {
   description = "Whether to create a NAT Gateway. Set to false to avoid NAT costs in dev."
   type        = bool
-  default     = false
+  default     = true
 }

@@ -7,7 +7,7 @@
 
 terraform {
   backend "s3" {
-    bucket         = "tf-learning-state-184089812229-us-east-1"
+    bucket         = "REPLACE_WITH_your_state_bucket_name"
     key            = "02-flat-vpc/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "tf-learning-locks"

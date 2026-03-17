@@ -14,7 +14,7 @@ terraform {
     # ---------------------------------------------------------------------------
     # Replace with your bootstrap outputs
     # ---------------------------------------------------------------------------
-    bucket         = "tf-learning-state-184089812229-us-east-1"
+    bucket         = "REPLACE_WITH_state_bucket_name_output"
     region         = "us-east-1"                   # Must match bootstrap region
     dynamodb_table = "tf-learning-locks"
 

@@ -11,7 +11,7 @@ import os
 
 
 def handler(event, context):
-    greeting = os.environ.get("GREETINGS", "Hello")
+    greeting = os.environ.get("GREETING", "Hello")
     stage = os.environ.get("STAGE", "unknown")
 
     return {
