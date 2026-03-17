@@ -1,5 +1,5 @@
 # =============================================================================
-# variables.tf — Project 2.1: VPC Module (root)
+# variables.tf — Project 2.2: Lambda Module
 # =============================================================================
 
 variable "aws_region" {
@@ -25,20 +25,8 @@ variable "project_name" {
   default     = "tf-learning"
 }
 
-variable "vpc_cidr" {
-  description = "CIDR block for the VPC"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
-variable "az_count" {
-  description = "Number of AZs to spread subnets across"
-  type        = number
-  default     = 2
-}
-
 variable "enable_nat_gateway" {
-  description = "Whether to create a NAT Gateway. Set to false to avoid NAT costs in dev."
+  description = "Whether to provision a NAT Gateway. Required for VPC Lambda to reach the internet. Set false to reduce cost when testing without outbound internet."
   type        = bool
   default     = false
 }
