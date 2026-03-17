@@ -8,12 +8,12 @@ built around reusable modules.
 | Project | Focus | Key Concepts |
 |---|---|---|
 | [01-remote-state](./projects/01-remote-state/) | Provider + S3/DynamoDB backend | init, plan, apply, state, outputs |
-| 02-flat-vpc *(coming next)* | VPC, subnets, IGW, route tables, SGs | data sources, resource dependencies |
-| 03-vpc-module | Refactor VPC into a reusable module | module blocks, input/output contracts |
-| 04-lambda-module | Lambda + IAM as a module | IAM, archive_file, environment vars |
-| 05-api-gateway-module | HTTP API wired to Lambda | integrations, stages, CORS |
-| 06-serverless-api | Compose all modules into a real app | module composition, remote state data |
-| 07-multi-env | dev / prod via tfvars | workspaces vs var files |
+| [02-flat-vpc](./projects/02-flat-vpc/README.md) | VPC, subnets, IGW, route tables, SGs | data sources, resource dependencies |
+| [03-vpc-module](./projects/03-vpc-module/README.md) | Refactor VPC into a reusable module | module blocks, input/output contracts |
+| [04-lambda-module](./projects/04-lambda-module/README.md) | Lambda + IAM as a module | IAM, archive_file, environment vars |
+| [05-api-gateway-module](./projects/05-api-gateway-module/README.md) | HTTP API wired to Lambda | integrations, stages, CORS |
+| [06-serverless-api](./projects/06-serverless-api/README.md) | Compose all modules into a real app | module composition, remote state data |
+| [07-multi-env](./projects/07-multi-env/README.md) | dev / prod via tfvars | workspaces vs var files |
 
 ## Prerequisites
 
